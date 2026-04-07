@@ -7,6 +7,51 @@ End-to-end SQL-based e-commerce analytics project covering funnel analysis, coho
 
 This project analyzes an e-commerce marketplace using SQL, focusing on both **seller acquisition (supply side)** and **customer behavior (demand side)**.
 
+## Dataset Overview
+
+This project uses the **Brazilian E-Commerce Public Dataset by Olist**, combined with the **Olist Marketing Funnel Dataset**, covering both marketplace transactions and seller acquisition data.
+
+---
+
+### Core E-Commerce Tables
+
+| Table Name     | Description               | Rows       |
+|----------------|--------------------------|------------|
+| customers      | Customer information     | 99,441     |
+| orders         | Order-level data         | 99,441     |
+| order_items    | Items per order          | 112,650    |
+| order_payments | Payment transactions     | 103,886    |
+| order_reviews  | Customer feedback        | 99,224     |
+| products       | Product catalog          | 32,951     |
+| sellers        | Seller information       | 3,095      |
+| geolocation    | Location data            | ~1,000,000 |
+
+---
+
+### Marketing Funnel Tables
+
+| Table Name                | Description              | Rows   |
+|--------------------------|--------------------------|--------|
+| marketing_qualified_leads| Incoming seller leads    | ~8,000 |
+| closed_deals             | Converted seller leads   | ~800   |
+
+---
+
+### Data Scale
+
+- Total Tables: 10  
+- Total Records: ~1.5+ million rows  
+- Time Range: 2016 – 2018  
+
+---
+
+### Data Modeling & Transformation
+
+- Integrated multiple normalized tables into a structured analytics layer using PostgreSQL  
+- Built a centralized **order-level fact table (`order_fact`)** to ensure metric consistency and eliminate duplication  
+- Applied data validation checks to maintain data quality across joins and aggregations  
+- Enabled efficient querying for business metrics such as GMV, retention, and seller funnel performance  
+
 The analysis is divided into two major components:
 
 1. Seller Funnel Analysis → Understanding seller acquisition, activation, and retention  
